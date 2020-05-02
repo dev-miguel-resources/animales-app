@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-animal-tarjeta',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimalTarjetaComponent implements OnInit {
 
-  constructor() { }
+
+  @Input() animal: any = {};
+  @Input() index: number;
+
+  constructor(private router: Router ) { }
 
   ngOnInit() {
+  }
+
+  verAnimal(){
+    this.router.navigate(['/animal', this.index]);
   }
 
 }
